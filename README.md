@@ -66,7 +66,7 @@ a volebné okrsky.
 
 ## Ako pridať ďalšie voľby
 
-Do `portal/scripts/zdroje.mjs` pribudne položka s adresou súboru a názvom
+Do `scripts/zdroje.mjs` pribudne položka s adresou súboru a názvom
 parsera. Ak má tabuľka rovnaké stĺpce ako existujúca, parser sa použije
 znovu; inak sa dopíše do `parsery.mjs`.
 

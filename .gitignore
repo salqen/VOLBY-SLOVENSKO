@@ -1,18 +1,20 @@
 # Závislosti a build
 node_modules/
 .next/
+next-env.d.ts
 *.tsbuildinfo
 
 # Stiahnuté podklady zo štatistického úradu (7,6 MB).
-# Do repozitára nepatria — kedykoľvek sa stiahnu znovu príkazom
-# `npm run stiahni`. Verzuje sa len index s hashmi, ktorý dokladá,
-# ktorý súbor sme mali a v akej podobe.
-portal/data-raw/*
-!portal/data-raw/index.json
+# Do repozitára nepatria — `npm run stiahni` ich stiahne znovu.
+# Verzuje sa len index s hashmi, ktorý dokladá, ktorý súbor sme mali.
+# Vzor musí byť `data-raw/*`, nie `data-raw/`: do vylúčeného priečinka
+# git nezostúpi a výnimka nižšie by neplatila.
+data-raw/*
+!data-raw/index.json
 
-# Dátová vrstva portálu — generuje ju `npm run data` z registra
-# a stiahnutých tabuliek. Odvodené dáta sa neverzujú.
-portal/src/data/*.json
+# Dátová vrstva — generuje ju `npm run data`. Odvodené dáta sa neverzujú,
+# inak by každý build pridal do histórie ďalších 11 MB.
+src/data/*.json
 
 # Rozbalené kópie zdrojových archívov (originály sú verzované ako .zip)
 CSV obci/rozbalene/*

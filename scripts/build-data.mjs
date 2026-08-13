@@ -20,7 +20,7 @@ import { volbyPodlaVeku, zdroje } from "./zdroje.mjs";
  * musí ísť cez obec, nie cez okres.
  */
 
-const KOREN = path.resolve(import.meta.dirname, "..", "..");
+const KOREN = path.resolve(import.meta.dirname, "..");
 const VYSTUP = path.resolve(import.meta.dirname, "..", "src", "data");
 
 const KRAJE = [
