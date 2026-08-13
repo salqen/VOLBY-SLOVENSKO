@@ -1,0 +1,27 @@
+{
+  "name": "volby-slovensko",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "dev": "npm run data && next dev",
+    "build": "npm run data && next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "stiahni": "node scripts/stiahni.mjs"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "exceljs": "^4.4.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^6.0.0"
+  }
+}

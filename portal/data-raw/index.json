@@ -1,0 +1,245 @@
+{
+  "oso2022-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab02bd.xlsx",
+    "popis": "Počet voličov a účasť podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "0685305e6b0797a4bc6f46ac53c0563cedc5335893118a918da12676633aa371",
+    "bytes": 284410,
+    "etag": "\"456fa-5ec3e096fc280\"",
+    "fetchedAt": "2026-08-13T11:00:36.588Z"
+  },
+  "oso2022-starostovia-obce": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab04d.xlsx",
+    "popis": "Zvolení starostovia podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "9d70326891bd5e289e8c427271c904cba6f6b7a4f4389a69b92a54b2f17292f2",
+    "bytes": 202135,
+    "etag": "\"31597-5ec3e0a456200\"",
+    "fetchedAt": "2026-08-13T11:00:37.162Z"
+  },
+  "oso2022-starostovia-mesta": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab04x.xlsx",
+    "popis": "Zvolení primátori Bratislavy a Košíc",
+    "volby": "oso2022",
+    "contentHash": "50356651f70a4aabdc896fe170c9095dd1b693fea439d52a136f1485491b4b04",
+    "bytes": 10375,
+    "etag": "\"2887-5ec3e0a54a440\"",
+    "fetchedAt": "2026-08-13T11:00:37.233Z"
+  },
+  "oso2022-ucast-mesta": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab02bx.xlsx",
+    "popis": "Počet voličov a účasť — Bratislava a Košice ako celok",
+    "volby": "oso2022",
+    "contentHash": "e031a73938f500cd7dc7d259125a6da6c4c1f5646ca6eb0fdba2b2de27166a47",
+    "bytes": 10635,
+    "etag": "\"298b-5ec3e099d8940\"",
+    "fetchedAt": "2026-08-13T11:00:37.297Z"
+  },
+  "oso2022-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab05d.xlsx",
+    "popis": "Výsledky kandidátov na starostu podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "d459074c77d06fecd706e22894840d0171217fdcdbd18c27ff56c22412a42eae",
+    "bytes": 567306,
+    "etag": "\"8a80a-5ec3e0a7328c0\"",
+    "fetchedAt": "2026-08-13T11:00:38.546Z"
+  },
+  "oso2022-kandidati-starostovia": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab0ad.xlsx",
+    "popis": "Kandidáti na starostov podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "7bc0271383926ab79fe6e673817742febcc9b4af84aee4339d8b93ee397d5a4a",
+    "bytes": 562483,
+    "etag": "\"89533-5ec3e082f5340\"",
+    "fetchedAt": "2026-08-13T11:00:39.228Z"
+  },
+  "oso2022-zvoleni-poslanci": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab06d.xlsx",
+    "popis": "Zvolení poslanci podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "a71387795c80f80927256345325a17b8a2a9b29d56043830b1fdc46bf629fd4d",
+    "bytes": 1323626,
+    "etag": "\"14326a-5ec3e0b768f00\"",
+    "fetchedAt": "2026-08-13T11:00:41.569Z"
+  },
+  "oso2022-kandidati-poslanci": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab0bd.xlsx",
+    "popis": "Kandidáti na poslancov podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "2fc93023e5787de713da79acd8f74b21b7deab0f159d046e29b3db9903249bc2",
+    "bytes": 3256202,
+    "etag": "\"31af8a-5ec3e089a2300\"",
+    "fetchedAt": "2026-08-13T11:00:43.942Z"
+  },
+  "oso2022-subjekty-obce": {
+    "url": "https://volby.statistics.sk/oso/oso2022/files/xlsx/OSO2022_SK_tab07d.xlsx",
+    "popis": "Politické subjekty a zvolení poslanci podľa obcí",
+    "volby": "oso2022",
+    "contentHash": "076ca62ab0e72ec30974c6a4a8ce421b489c038a49211284ee37bf575dd28abe",
+    "bytes": 409324,
+    "etag": "\"63eec-5ec3e0ba455c0\"",
+    "fetchedAt": "2026-08-13T11:00:44.841Z"
+  },
+  "dopl202303-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202303_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby marec 2023 — výsledky kandidátov na starostu",
+    "volby": "dopl202303",
+    "contentHash": "8908fde1dae59638d79e8d006dbbf5bc060a1e1ecb6acb36422d7589080f5526",
+    "bytes": 14536,
+    "etag": "\"38c8-601605765e710\"",
+    "fetchedAt": "2026-08-13T11:13:31.998Z"
+  },
+  "dopl202303-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202303_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby marec 2023 — počet voličov a účasť",
+    "volby": "dopl202303",
+    "contentHash": "8c04269c3074176670878a206bce0f53cfac5907029bbdbd1e54ad5f4afa2016",
+    "bytes": 16308,
+    "etag": "\"3fb4-601605765e328\"",
+    "fetchedAt": "2026-08-13T11:13:32.104Z"
+  },
+  "dopl202309-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202309_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby september 2023 — výsledky kandidátov na starostu",
+    "volby": "dopl202309",
+    "contentHash": "07d2585acf4743b144b828eabc43191e2a7090b81008a8eb08260db23c350c6b",
+    "bytes": 14834,
+    "etag": "\"39f2-60510d2f2b140\"",
+    "fetchedAt": "2026-08-13T11:13:32.210Z"
+  },
+  "dopl202309-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202309_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby september 2023 — počet voličov a účasť",
+    "volby": "dopl202309",
+    "contentHash": "3f83715b0eabca4b4d8778db3fa7e4ac220df75243d313196fab187f5cda0fec",
+    "bytes": 13710,
+    "etag": "\"358e-60510d29723c0\"",
+    "fetchedAt": "2026-08-13T11:13:32.279Z"
+  },
+  "dopl202402-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202402_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby február 2024 — výsledky kandidátov na starostu",
+    "volby": "dopl202402",
+    "contentHash": "803b2f808e0978fdedc0c98d2b3b842500349778ca2ab581c0e59e5f225a7c62",
+    "bytes": 13099,
+    "etag": "\"332b-6110f883acb00\"",
+    "fetchedAt": "2026-08-13T11:13:32.382Z"
+  },
+  "dopl202402-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202402_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby február 2024 — počet voličov a účasť",
+    "volby": "dopl202402",
+    "contentHash": "6cea4f9add38984d0bfa0a52cd51b23690b07e7d26e564098a533c2339cce7b7",
+    "bytes": 12741,
+    "etag": "\"31c5-6110f87cffb40\"",
+    "fetchedAt": "2026-08-13T11:13:32.466Z"
+  },
+  "dopl202410-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202410_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby október 2024 — výsledky kandidátov na starostu",
+    "volby": "dopl202410",
+    "contentHash": "90c7d88c7d54f386eddd81dfe072b41f6b958c35483612665bb362279dd6b5d1",
+    "bytes": 17476,
+    "etag": "\"4444-623dd70b63d80\"",
+    "fetchedAt": "2026-08-13T11:13:32.563Z"
+  },
+  "dopl202410-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202410_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby október 2024 — počet voličov a účasť",
+    "volby": "dopl202410",
+    "contentHash": "79e37323be83738e112f1ef8194c21e015834d59fa0d5ba2ad19ebdf96dcf19d",
+    "bytes": 14776,
+    "etag": "\"39b8-623dd705ab000\"",
+    "fetchedAt": "2026-08-13T11:13:32.616Z"
+  },
+  "dopl202503-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202503_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby marec 2025 — výsledky kandidátov na starostu",
+    "volby": "dopl202503",
+    "contentHash": "46d40d7517ea59158116234bb0cd40ea476ae7d93129c1cd1d532949297099f9",
+    "bytes": 13489,
+    "etag": "\"34b1-630697726e140\"",
+    "fetchedAt": "2026-08-13T11:13:32.679Z"
+  },
+  "dopl202503-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202503_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby marec 2025 — počet voličov a účasť",
+    "volby": "dopl202503",
+    "contentHash": "ed3f0aef20a1af9a35f766769e74d4ae85c89761f3a1eb80c39d32c24e6dfaa5",
+    "bytes": 13528,
+    "etag": "\"34d8-6306976cb53c0\"",
+    "fetchedAt": "2026-08-13T11:13:32.761Z"
+  },
+  "dopl202509-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202509_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby september 2025 — výsledky kandidátov na starostu",
+    "volby": "dopl202509",
+    "contentHash": "2819adc58b3e6554b6820acddba69ad9a9f5745049389cb6a712d392f7438969",
+    "bytes": 13503,
+    "etag": "\"34bf-63e2980568900\"",
+    "fetchedAt": "2026-08-13T11:13:32.823Z"
+  },
+  "dopl202509-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202509_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby september 2025 — počet voličov a účasť",
+    "volby": "dopl202509",
+    "contentHash": "2d2152dcf941044dd3ecce933e379e265f930da656d6771fe2792246a3991716",
+    "bytes": 14261,
+    "etag": "\"37b5-63e297fdc7700\"",
+    "fetchedAt": "2026-08-13T11:13:32.908Z"
+  },
+  "dopl202603-vysledky-starostovia": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202603_SK_tab05d.xlsx",
+    "popis": "Doplnkové voľby marec 2026 — výsledky kandidátov na starostu",
+    "volby": "dopl202603",
+    "contentHash": "4598ca83a1af68e275624405a3d8edab3cd621b9291cbba8f549d9364312365c",
+    "bytes": 12736,
+    "etag": "\"31c0-64d91669680c0\"",
+    "fetchedAt": "2026-08-13T11:13:32.977Z"
+  },
+  "dopl202603-ucast-obce": {
+    "url": "https://volby.statistics.sk/oso/doplnkove2022/files/xlsx/OSO202603_SK_tab02bd.xlsx",
+    "popis": "Doplnkové voľby marec 2026 — počet voličov a účasť",
+    "volby": "dopl202603",
+    "contentHash": "49edf16a4baa15cdd9201eb80fed63c919eae1efefc7890880031bcd6c62ba54",
+    "bytes": 12528,
+    "etag": "\"30f0-64d91664a3580\"",
+    "fetchedAt": "2026-08-13T11:13:33.040Z"
+  },
+  "osk2022-kandidati-predseda": {
+    "url": "https://volby.statistics.sk/osk/osk2022/files/xlsx/OSK2022_SK_tab0a.xlsx",
+    "popis": "Kandidáti na predsedu samosprávneho kraja",
+    "volby": "osk2022",
+    "contentHash": "c0559a9605c815142f2ea35cb20f69f12dbb2dc5a1f8c93334ae1cf6e04f5e3f",
+    "bytes": 17199,
+    "etag": "\"432f-5ec3bb174ca00\"",
+    "fetchedAt": "2026-08-13T14:43:27.290Z"
+  },
+  "osk2022-vysledky-predseda": {
+    "url": "https://volby.statistics.sk/osk/osk2022/files/xlsx/OSK2022_SK_tab06a.xlsx",
+    "popis": "Výsledky volieb predsedu — súhrn za kraj",
+    "volby": "osk2022",
+    "contentHash": "d33a003538d1684aabb6208ef304c186856aeed1eb8ed4de4d37d1db299d7219",
+    "bytes": 15682,
+    "etag": "\"3d42-5ec3bb3a95d40\"",
+    "fetchedAt": "2026-08-13T14:45:26.056Z"
+  },
+  "osk2022-zvoleni-poslanci": {
+    "url": "https://volby.statistics.sk/osk/osk2022/files/xlsx/OSK2022_SK_tab09b.xlsx",
+    "popis": "Zvolení poslanci zastupiteľstiev krajov",
+    "volby": "osk2022",
+    "contentHash": "017a8ea988e9aa84d9d97ca74f5c9af901a7943287b189e9ced7eba371a7055b",
+    "bytes": 202647,
+    "etag": "\"31797-5ec3bb60bb740\"",
+    "fetchedAt": "2026-08-13T14:43:27.856Z"
+  },
+  "osk2022-ucast-obce": {
+    "url": "https://volby.statistics.sk/osk/osk2022/files/xlsx/OSK2022_SK_tab02bd.xlsx",
+    "popis": "Počet voličov a účasť v župných voľbách podľa obcí",
+    "volby": "osk2022",
+    "contentHash": "d0922bb137850b145b2b09cfbde65c2b8873aa323bd6406d2ecf0e06956b91f0",
+    "bytes": 498442,
+    "etag": "\"79b0a-5ec3bb3018480\"",
+    "fetchedAt": "2026-08-13T14:43:28.496Z"
+  }
+}

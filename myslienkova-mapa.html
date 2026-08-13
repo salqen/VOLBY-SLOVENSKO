@@ -1,0 +1,438 @@
+<title>Volebný portál SR — myšlienková mapa</title>
+<style>
+  :root {
+    --papier: #f6f7f9;
+    --plocha: #ffffff;
+    --atrament: #171b22;
+    --tlmene: #5b6674;
+    --linka: #dcdfe6;
+    --erb: #c81420;
+    --listok-modry: #2e5c9a;
+    --listok-zeleny: #3c7a57;
+    --listok-okrovy: #a8792a;
+    --bridlica: #5b6674;
+    --tien: 0 1px 2px rgb(23 27 34 / .05), 0 8px 24px -14px rgb(23 27 34 / .22);
+
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --papier: #12151b;
+      --plocha: #1a1e26;
+      --atrament: #e6e9ee;
+      --tlmene: #98a2b1;
+      --linka: #2b313b;
+      --erb: #f26670;
+      --listok-modry: #7aa5de;
+      --listok-zeleny: #6fb98c;
+      --listok-okrovy: #d6a94f;
+      --bridlica: #98a2b1;
+      --tien: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -14px rgb(0 0 0 / .6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --papier: #12151b;
+    --plocha: #1a1e26;
+    --atrament: #e6e9ee;
+    --tlmene: #98a2b1;
+    --linka: #2b313b;
+    --erb: #f26670;
+    --listok-modry: #7aa5de;
+    --listok-zeleny: #6fb98c;
+    --listok-okrovy: #d6a94f;
+    --bridlica: #98a2b1;
+    --tien: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -14px rgb(0 0 0 / .6);
+  }
+
+  :root[data-theme="light"] {
+    --papier: #f6f7f9;
+    --plocha: #ffffff;
+    --atrament: #171b22;
+    --tlmene: #5b6674;
+    --linka: #dcdfe6;
+    --erb: #c81420;
+    --listok-modry: #2e5c9a;
+    --listok-zeleny: #3c7a57;
+    --listok-okrovy: #a8792a;
+    --bridlica: #5b6674;
+    --tien: 0 1px 2px rgb(23 27 34 / .05), 0 8px 24px -14px rgb(23 27 34 / .22);
+  }
+
+  body {
+    background: var(--papier);
+    color: var(--atrament);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+
+  .obal {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.1rem, 4vw, 2.5rem) 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  /* ── Hlavička ─────────────────────────────────────────────── */
+  .hlava { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .stitok {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--tlmene);
+  }
+
+  .hlava h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 4.6vw, 3rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.015em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .podtitul {
+    max-width: 62ch;
+    color: var(--tlmene);
+    font-size: 1.02rem;
+    margin: 0;
+  }
+
+  /* ── Odpočet ──────────────────────────────────────────────── */
+  .odpocet {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1px;
+    background: var(--linka);
+    border: 1px solid var(--linka);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .odpocet div { background: var(--plocha); padding: 1rem 1.15rem; }
+
+  .odpocet dt {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--tlmene);
+  }
+
+  .odpocet dd {
+    margin: .35rem 0 0;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .odpocet .naliehave dd { color: var(--erb); }
+
+  .odpocet small {
+    display: block;
+    font-size: .8rem;
+    color: var(--tlmene);
+    margin-top: .15rem;
+  }
+
+  /* ── Mapa ─────────────────────────────────────────────────── */
+  .jadro {
+    justify-self: center;
+    text-align: center;
+    background: var(--plocha);
+    border: 1px solid var(--linka);
+    border-top: 3px solid var(--erb);
+    border-radius: 10px;
+    padding: 1rem 1.6rem;
+    box-shadow: var(--tien);
+    max-width: 24rem;
+    margin: 0 auto;
+  }
+
+  .jadro strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .jadro span { font-size: .88rem; color: var(--tlmene); }
+
+  .mapa {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    column-gap: clamp(1.6rem, 5vw, 3.5rem);
+    row-gap: 1.15rem;
+    align-items: start;
+    margin-top: 1.15rem;
+  }
+
+  .chrbtica {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    width: 1px;
+    height: 100%;
+    background: var(--linka);
+  }
+
+  .vetva {
+    background: var(--plocha);
+    border: 1px solid var(--linka);
+    border-radius: 10px;
+    padding: 1.05rem 1.2rem 1.15rem;
+    box-shadow: var(--tien);
+    position: relative;
+    border-left: 3px solid var(--tonu);
+  }
+
+  /* spojnica k chrbtici */
+  .vetva::after {
+    content: "";
+    position: absolute;
+    top: 1.9rem;
+    width: clamp(1.6rem, 5vw, 3.5rem);
+    height: 1px;
+    background: var(--linka);
+  }
+
+  .vetva--l { grid-column: 1; }
+  .vetva--r { grid-column: 3; }
+  .vetva--l::after { left: 100%; }
+  .vetva--r::after { right: 100%; }
+
+  .vetva--l { border-left: 1px solid var(--linka); border-right: 3px solid var(--tonu); }
+
+  .vetva h2 {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin: 0 0 .2rem;
+    color: var(--tonu);
+  }
+
+  .vetva .zhrn {
+    margin: 0 0 .8rem;
+    font-size: .87rem;
+    color: var(--tlmene);
+  }
+
+  .vetva ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .42rem;
+    font-size: .92rem;
+  }
+
+  .vetva li { padding-left: .95rem; position: relative; }
+
+  .vetva li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: .3rem;
+    height: .3rem;
+    border-radius: 50%;
+    background: var(--tonu);
+  }
+
+  .vetva li b { font-weight: 600; }
+
+  .poz {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--tlmene);
+    border: 1px solid var(--linka);
+    border-radius: 999px;
+    padding: .05rem .45rem;
+    margin-left: .3rem;
+    vertical-align: 1px;
+  }
+
+  /* ── Pätka ────────────────────────────────────────────────── */
+  .patka {
+    border-top: 1px solid var(--linka);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+  }
+
+  .patka h2 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .patka p { margin: 0; max-width: 68ch; color: var(--tlmene); font-size: .95rem; }
+  .patka strong { color: var(--atrament); }
+
+  .subory {
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--tlmene);
+    margin-top: .3rem;
+  }
+
+  @media (max-width: 860px) {
+    .mapa { grid-template-columns: 1fr; }
+    .chrbtica { display: none; }
+    .vetva--l, .vetva--r { grid-column: 1; }
+    .vetva::after { display: none; }
+    .vetva--l { border-right: 1px solid var(--linka); border-left: 3px solid var(--tonu); }
+  }
+</style>
+
+<div class="obal">
+
+  <header class="hlava">
+    <p class="stitok">Zámer projektu · 12. augusta 2026</p>
+    <h1>Volebný portál pre viac miest</h1>
+    <p class="podtitul">
+      Komunálne aj župné voľby vo viacerých mestách na jednej novej doméne.
+      Bratislava zostáva na vlastnej adrese a zároveň je súčasťou portálu.
+    </p>
+
+    <dl class="odpocet">
+      <div class="naliehave">
+        <dt>Do volieb</dt>
+        <dd>73 dní</dd>
+        <small>24. 10. 2026</small>
+      </div>
+      <div class="naliehave">
+        <dt>Do kandidátnych listín</dt>
+        <dd>4 týždne</dd>
+        <small>~9. 9. 2026</small>
+      </div>
+      <div>
+        <dt>Súťaže na voliča</dt>
+        <dd>4 – 6</dd>
+        <small>podľa mesta</small>
+      </div>
+      <div>
+        <dt>Prenáša sa z Bratislavy</dt>
+        <dd>celý portál</dd>
+        <small>okrem dátovej vrstvy</small>
+      </div>
+    </dl>
+  </header>
+
+  <section aria-label="Myšlienková mapa projektu">
+    <div class="jadro">
+      <strong>Volebný portál SR</strong>
+      <span>nová doména + bratislavskevolby.sk</span>
+    </div>
+
+    <div class="mapa">
+      <div class="chrbtica" aria-hidden="true"></div>
+
+      <article class="vetva vetva--l" style="--tonu: var(--erb)">
+        <h2>Termín rozhoduje</h2>
+        <p class="zhrn">Hlavný fakt celého plánu.</p>
+        <ul>
+          <li>Dátový základ musí stáť <b>skôr, než prídu listiny</b></li>
+          <li>Desať miest do volieb nie je reálnych</li>
+          <li>Pri sklze škrtať <b>počet miest, nie dôveryhodnosť</b></li>
+        </ul>
+      </article>
+
+      <article class="vetva vetva--r" style="--tonu: var(--listok-modry)">
+        <h2>Dátový model</h2>
+        <p class="zhrn">Tri oddelené vrstvy namiesto jednej.</p>
+        <ul>
+          <li><b>Geografia</b> — kraj → okres → obec → MČ → obvod → okrsok</li>
+          <li><b>Voľby</b> — udalosť → súťaž</li>
+          <li><b>Ľudia</b> — osoba → kandidatúra → výsledok</li>
+          <li>Kód obce ŠÚ SR ako prirodzený kľúč</li>
+          <li>Župné voľby = ďalší riadok, bez migrácie</li>
+        </ul>
+      </article>
+
+      <article class="vetva vetva--l" style="--tonu: var(--listok-zeleny)">
+        <h2>Zber dát</h2>
+        <p class="zhrn">Nikdy nescrapovať priamo do produkcie.</p>
+        <ul>
+          <li>Surová vrstva → medzivrstva → jadro</li>
+          <li>Každý súbor sa odkladá <b>doslova</b> — kvôli doložiteľnosti</li>
+          <li>Hash obsahu = idempotencia</li>
+          <li>Pôvod pri riadku, nie pri tabuľke</li>
+          <li>Zmena zverejneného údaja ide na schválenie</li>
+        </ul>
+      </article>
+
+      <article class="vetva vetva--r" style="--tonu: var(--listok-okrovy)">
+        <h2>Zdroje</h2>
+        <p class="zhrn">Asymetria, ktorá určuje poradie prác.</p>
+        <ul>
+          <li><b>Výsledky ŠÚ SR</b> — celé Slovensko jedným súborom <span class="poz">lacné</span></li>
+          <li>Číselníky obcí, okresov, krajov <span class="poz">lacné</span></li>
+          <li>Kandidátne listiny — PDF miest a krajov <span class="poz">drahé</span></li>
+          <li><b>Okrsky</b> — PDF a skeny každej obce zvlášť <span class="poz">najdrahšie</span></li>
+          <li>Aktuality cez RSS <span class="poz">hotové</span></li>
+        </ul>
+      </article>
+
+      <article class="vetva vetva--l" style="--tonu: var(--listok-modry)">
+        <h2>Portál</h2>
+        <p class="zhrn">Mesto je záznam v databáze, nie nový projekt.</p>
+        <ul>
+          <li>Jedno nasadenie, jedna databáza, jedna redakcia</li>
+          <li>Mesto v ceste; Bratislava bez prefixu</li>
+          <li>Kanonická adresa proti duplicite</li>
+          <li>Značková farba podľa erbu mesta</li>
+          <li>Sprievodca a FAQ spoločné, píšu sa raz</li>
+        </ul>
+      </article>
+
+      <article class="vetva vetva--r" style="--tonu: var(--bridlica)">
+        <h2>Riziká</h2>
+        <p class="zhrn">Zoradené podľa pravdepodobnosti.</p>
+        <ul>
+          <li>Okrsky sa nestihnú → sekciu <b>vypnúť</b>, nie zverejniť nesprávnu</li>
+          <li>Mestá zverejnia okrsky neskoro → rátať s tým</li>
+          <li>Dvaja ľudia s rovnakým menom → ručné potvrdenie</li>
+          <li>Redakčná kapacita mimo Bratislavy</li>
+          <li>Autorské práva k fotografiám kandidátov</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="patka">
+    <h2>Odporúčanie</h2>
+    <p>
+      Ísť úzko a hlboko: <strong>Bratislava, Košice a dve krajské mestá</strong> s plnými
+      výsledkami 2022, kandidátmi a aktualitami. „Môj okrsok“ zapnúť len tam, kde sa
+      okrsky stihnú potvrdiť oproti originálu. Po voľbách rozšíriť bez tlaku.
+    </p>
+    <p>
+      Ako druhé mesto <strong>Košice</strong>, nie Prešov — majú mestské časti, takže overia
+      rovnakú vetvu ako Bratislava. Mesto bez mestských častí je jednoduchší prípad
+      a narazili by sme naň neskoro.
+    </p>
+    <p>
+      Otvorené: doména, zoznam miest do prvého kola, či ísť naživo aj bez „Môjho okrsku“,
+      kto píše obsah pre nové mestá, a potvrdenie termínu župných volieb.
+    </p>
+    <p class="subory">VOLBY SLOVENSKO/PROJEKT.md · BAvolby-git/docs/scraping-schema.md · nove-mesto-navod.md</p>
+  </footer>
+
+</div>

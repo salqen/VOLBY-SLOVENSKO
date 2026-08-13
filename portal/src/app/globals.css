@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+/* Explicitný rozsah skenovania tried. Bez neho Tailwind hľadá zdroje
+   automatickou detekciou od koreňa projektu, čo pri repozitári v Dropboxe
+   znamená prehľadávanie desiatok tisíc cudzích súborov. */
+@source "../";
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Dizajn systém — bratislavskevolby.sk
+   Fáza 0 roadmapy: farby, typografia, komponenty.
+   Tri režimy zobrazenia: light · dark · senior (väčšie písmo + vyšší kontrast).
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* — Značka ————————————————————————————————————————————————— */
+  --color-civic-50: #eff6ff;
+  --color-civic-100: #dbeafe;
+  --color-civic-200: #bfdbfe;
+  --color-civic-300: #93c5fd;
+  --color-civic-400: #60a5fa;
+  --color-civic-500: #3b82f6;
+  --color-civic-600: #2563eb;
+  --color-civic-700: #1d4ed8;
+  --color-civic-800: #1e40af;
+  --color-civic-900: #1e3a8a;
+  --color-civic-950: #172554;
+
+  /* — Akcent (odpočet, CTA, zvýraznenia) —————————————————————— */
+  --color-flame-50: #fff7ed;
+  --color-flame-100: #ffedd5;
+  --color-flame-300: #fdba74;
+  --color-flame-500: #f97316;
+  --color-flame-600: #ea580c;
+  --color-flame-700: #c2410c;
+
+  /* — Sémantika: stav sľubu / fact-checku ————————————————————— */
+  --color-verified: #059669;
+  --color-partial: #d97706;
+  --color-failed: #dc2626;
+  --color-unknown: #64748b;
+
+  /* — Typografia ————————————————————————————————————————————— */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* — Rytmus ————————————————————————————————————————————————— */
+  --radius-card: 0.875rem;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 16px -6px rgb(15 23 42 / 0.10);
+}
+
+/* ── Červená téma ─────────────────────────────────────────────────────────
+   Odvodená z mestského erbu (GRAFIKY/erb bratislava simply dark red.jpg).
+   Namerané z predlohy: pole štítu #d2151c, presvetlenie #db262d, tmavší
+   okraj #c80911, tieň pod vežami #7f1c21 — sedia na stupňoch 600/500/700/800.
+
+   Prepína sa výmenou značkovej škály, nie prepisovaním jednotlivých miest:
+   všetky utility `*-civic-*` čítajú tieto premenné, takže stačí táto jedna
+   sada. Deklarácie sú mimo vrstiev, a tak prebijú `@theme` (vrstva `theme`). */
+.theme-red {
+  --color-civic-50: #fff1f1;
+  --color-civic-100: #ffdedf;
+  --color-civic-200: #ffc2c4;
+  --color-civic-300: #f99a9d;
+  --color-civic-400: #ee5b61;
+  --color-civic-500: #e5262d;
+  --color-civic-600: #d2151c;
+  --color-civic-700: #b30f16;
+  --color-civic-800: #8f1015;
+  --color-civic-900: #741216;
+  --color-civic-950: #430709;
+}
+
+
+/* ── Sémantické tokeny plôch ──────────────────────────────────────────────
+   Päť plôch, nič viac: page → surface → raised → line → ink.               */
+:root {
+  --page: #f8fafc;
+  --surface: #ffffff;
+  --raised: #f1f5f9;
+  --line: #e2e8f0;
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --ink-subtle: #64748b;
+  --brand: var(--color-civic-700);
+  --brand-ink: #ffffff;
+  --ring: var(--color-civic-500);
+
+  --scale: 1;
+  color-scheme: light;
+}
+
+.dark {
+  --page: #020617;
+  --surface: #0f172a;
+  --raised: #1e293b;
+  --line: #1e293b;
+  --ink: #e2e8f0;
+  --ink-muted: #94a3b8;
+  --ink-subtle: #64748b;
+  --brand: var(--color-civic-400);
+  --brand-ink: #020617;
+  --ring: var(--color-civic-400);
+
+  color-scheme: dark;
+}
+
+/* Senior režim — sekcia „Doplnkové UX funkcie“ v roadmape.
+   Väčšie písmo, vyšší kontrast, hrubšie orámovanie, menej dekorácie. */
+.senior {
+  --scale: 1.2;
+  --ink: #000000;
+  --ink-muted: #1e293b;
+  --ink-subtle: #334155;
+  --line: #94a3b8;
+  /* Rovnaké odtiene ako doteraz (#1d4ed8, resp. #93c5fd), len cez tokeny —
+     inak by senior režim ostal modrý aj po prepnutí na červenú. */
+  --brand: var(--color-civic-700);
+}
+
+.senior.dark {
+  --ink: #ffffff;
+  --ink-muted: #e2e8f0;
+  --ink-subtle: #cbd5e1;
+  --line: #64748b;
+  --brand: var(--color-civic-300);
+}
+
+/* Značkové tokeny červenej témy — musia stáť až za `:root` a `.dark`.
+   Nestačí prepísať škálu `--color-civic-*` vyššie: `--brand` je deklarovaný
+   ako `var(--color-civic-700)`, a keď sa zmení len tá vnútorná premenná,
+   prehliadač prepočíta `--brand`, ale už neprekreslí `var(--brand)` na
+   potomkoch — farby by naskočili až po obnovení stránky. Priama deklarácia
+   to vynúti rovnako, ako to robí `.dark`.
+
+   Hodnoty sú zámerne doslovné a zodpovedajú stupňom 700 / 500 / 400 / 300
+   červenej škály; pri jej úprave treba zmeniť aj tieto štyri miesta. */
+.theme-red {
+  --brand: #b30f16;
+  --ring: #e5262d;
+}
+
+.theme-red.dark {
+  --brand: #ee5b61;
+  --ring: #ee5b61;
+}
+
+.senior.theme-red {
+  --brand: #b30f16;
+}
+
+.senior.theme-red.dark {
+  --brand: #f99a9d;
+}
+
+.senior body {
+  font-size: calc(1rem * var(--scale));
+  line-height: 1.7;
+}
+
+.senior .card,
+.senior .btn {
+  border-width: 2px;
+}
+
+/* Senior režim skrýva dekoratívne a druhoradé prvky */
+.senior [data-senior-hide] {
+  display: none !important;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--page);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-civic-200);
+    color: var(--color-civic-950);
+  }
+}
+
+@layer components {
+  .card {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.625rem;
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background-color: var(--brand);
+    border-color: var(--brand);
+    color: var(--brand-ink);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--ink);
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    background-color: var(--raised);
+  }
+
+  .field {
+    width: 100%;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.625rem;
+    color: var(--ink);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .field::placeholder {
+    color: var(--ink-subtle);
+  }
+
+  .prose-portal {
+    color: var(--ink-muted);
+    line-height: 1.75;
+  }
+
+  .prose-portal p + p {
+    margin-top: 0.85rem;
+  }
+
+  .prose-portal strong {
+    color: var(--ink);
+    font-weight: 650;
+  }
+}
+
+/* ── Tlač: „Tlač digestu“ z roadmapy — čistý 1–2 stranový výstup ───────── */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  [data-print-hide],
+  header nav,
+  footer {
+    display: none !important;
+  }
+
+  .card {
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #475569;
+  }
+}
